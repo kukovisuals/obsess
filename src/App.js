@@ -1,23 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import {useEffect, useState} from 'react';
+import axios from 'axios';
+import ImageRow from './components/ImageRow/ImageRow';
 
+const ROOT_URL = 'https://fakestoreapi.com';
 function App() {
+  const [userData,setuserData] = useState([])
+  const [loading, setLoading] = useState(false)
+
+  useEffect(() => {
+    const getUserData = async() => {
+      setLoading(true)
+      try{
+        const {data: response} = await axios.get(`${ROOT_URL}/products`)
+        setuserData(response)
+      } catch(error) {
+        console.error(error.message)
+      }
+      setLoading(false)
+    }   
+
+    getUserData();
+  },[])
+
+  console.log(userData, loading)
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <ImageRow/>
     </div>
   );
 }
