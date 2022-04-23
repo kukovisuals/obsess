@@ -1,0 +1,75 @@
+.title{
+	// border: 1px solid black;
+	width: 15%;
+	margin: 0 auto;
+}
+
+.carousel_component{
+	// border: 1px solid black;
+	margin-top: 4vw;
+
+	&:hover{
+
+	}
+}
+
+.product_component{
+	border: 5px solid white;
+	width: 50%;
+
+	&:hover img.imageCarouselHidden{
+		opacity:1;
+		display:block;
+	}
+	&:hover img.imageCarousel{
+		display:none;
+	}
+}
+
+.carouselBanner_component{
+	// border: 1px solid black;
+	display: flex;
+	flex-direction:row;
+	justify-content: space-between;
+	margin: 1.5vw;
+
+	.carouselBannerText{
+		font-size: 20px;
+	}
+
+	.carouselBannerIcon{
+	}
+}
+
+.carouselImage_component{
+	// border: 1px solid red;
+
+	.imageCarouselHidden{
+		display:none;
+		width: 100%;
+		opacity:0;
+		transition: opacity .5s;
+	}
+	.imageCarousel{
+		width: 100%;
+		cursor: pointer;
+		transition: display .5s;
+	}
+}
+
+.carouselDescription_component{
+	// border: 1px solid blue;
+	width:50%;
+	margin: 0 auto;
+	text-align: center;
+	padding-top: 3vw;
+ 	
+	.carouselDesciptionTitle{
+	}
+	.carouselDescriptionItems{
+		display: block;
+	}
+	&:last-child{
+		padding-bottom: 4vw;
+	}
+}

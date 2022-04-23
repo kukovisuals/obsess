@@ -1,31 +1,52 @@
 import {useEffect, useState} from 'react';
 import axios from 'axios';
-import ImageRow from './components/ImageRow/ImageRow';
+// import {useDispatch,useSelector} from 'react-redux';
+import Carousel from './components/Carousel';
 
 const ROOT_URL = 'https://fakestoreapi.com';
+const product_uri = '/products?limit=5'
+
+const select = (state) => state
 function App() {
-  const [userData,setuserData] = useState([])
-  const [loading, setLoading] = useState(false)
+  const [productData,setProductData] = useState([])
+  const [error,setError] = useState([])
+  const [loading, setLoading] = useState(true)
 
-  useEffect(() => {
-    const getUserData = async() => {
-      setLoading(true)
-      try{
-        const {data: response} = await axios.get(`${ROOT_URL}/products`)
-        setuserData(response)
-      } catch(error) {
-        console.error(error.message)
-      }
-      setLoading(false)
-    }   
-
-    getUserData();
+  useEffect(() =>{
+    axios.get(ROOT_URL+product_uri)
+      .then(res => {
+        const {data: response} = res
+        setProductData(response)
+      })
+      .then(setLoading(false))
+      .catch(setError)
   },[])
 
-  console.log(userData, loading)
+  console.log(loading)
   return (
     <div className="App">
-      <ImageRow/>
+      <h1 className="title">New In</h1>
+
+      {loading && <p>... loading</p>}
+      {productData.length > 0 && <Carousel data={productData}/>}
+      
+      <ul className="slick-dots" role="tablist">
+        <li className="slick-active" role="presentation">
+          <button role="tab" id="slick-control">1</button>
+        </li>
+        <li className="slick-active" role="presentation">
+          <button role="tab" id="slick-control">2</button>
+        </li>
+        <li className="slick-active" role="presentation">
+          <button role="tab" id="slick-control">3</button>
+        </li>
+        <li className="slick-active" role="presentation">
+          <button role="tab" id="slick-control">4</button>
+        </li>
+        <li className="slick-active" role="presentation">
+          <button role="tab" id="slick-control">4</button>
+        </li>
+      </ul>
     </div>
   );
 }
