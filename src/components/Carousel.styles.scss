@@ -115,9 +115,10 @@ $button-width: 3vw;
 	    width: $button-width;
 	    height: $button-width;
 	    cursor: pointer;
+	    font-size: 0px;
 		}
 		&.slick-active button{
-			background-color: red;
+			background-color: black;
 		}
 	}
 }

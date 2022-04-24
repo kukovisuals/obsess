@@ -1,7 +1,7 @@
 import {useEffect} from 'react';
 import {useDispatch,useSelector} from 'react-redux';
 import {prodcutsSelector, fetchFendi} from '../features/fendiSlice';
-import useWindowSize from './WindowHelper';
+// import useWindowSize from './WindowHelper';
 
 import './Carousel.styles.scss';
 import IterateItems from './IterateItems';
@@ -12,13 +12,13 @@ function Carousel(){
 
 	const dispatch = useDispatch()
 
-	const [width,] = useWindowSize()
+	// const [width,] = useWindowSize()
 
 	useEffect(() => {
 		dispatch(fetchFendi())
-	},[])
+	},[dispatch])
 
-	const prodcuts = () => {
+	const allProducts = () => {
 		if(loading) return <p>loading</p>
 		if(hasErrors) return <p>Error</p>
 
@@ -37,13 +37,13 @@ function Carousel(){
 	const offset = 40
 	const scalar = 18
 	const margin = 40
-	let index = (offset * (fretz * scalar)) 
+	let index = offset * (fretz * scalar)
 	
 	console.log(fretz, index)
 	return (
 		<div className="carousel_component">     
       <div className="product_component" style={carouselMover(-index + margin)}>   
-        {prodcuts()	}
+        {allProducts()	}
       </div>
     </div>
 	)

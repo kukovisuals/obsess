@@ -1,4 +1,7 @@
-# Carousel in React using Redux/toolkit Fetching Api Data
+# Carousel in React + Redux/toolkit + Axios
+
+Trying to create a simple carousel where you click a button and you to you go to a certain width from the banner(carousel). No setTimeouts yet. maybe I'll add different features like arrows and stuff like that.
+
 
 ## ScreenShot:
 

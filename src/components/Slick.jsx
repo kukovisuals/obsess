@@ -1,3 +1,5 @@
+
+
 const SlickLi = ({index, change}) => {
   const newArray = new Array(5).fill(0)
   return newArray.map((d,i) => {

@@ -1,6 +1,7 @@
 {
   "name": "obsess",
-  "version": "0.1.0",
+  "version": "v17.4.0",
+  "npm-version": "8.4.1",
   "private": true,
   "dependencies": {
     "@reduxjs/toolkit": "^1.8.1",
