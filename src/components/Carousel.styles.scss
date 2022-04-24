@@ -1,3 +1,6 @@
+$button-padding: 4vw;
+$button-width: 3vw;
+
 .title{
 	// border: 1px solid black;
 	width: 15%;
@@ -18,11 +21,8 @@
 	border: 5px solid white;
   display: flex;
   flex-wrap:nowrap;
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
-  -ms-overflow-style: -ms-autohiding-scrollbar; 
-
-	
+  width: 2000px;
+	// overflow: hidden;
 }
 
 .carouselItem_container{
@@ -96,3 +96,28 @@
 	}
 }
 
+.slick-dots{
+	display: flex;
+	justify-content: center;
+	position: relative;
+	top: 3vw;
+	
+	li{
+		width: $button-padding;
+    height: $button-padding;
+    list-style-type: none;
+
+		button {
+	    position: absolute;
+	    border: none;
+	    background-color: gray;
+	    border-radius: 100vw;
+	    width: $button-width;
+	    height: $button-width;
+	    cursor: pointer;
+		}
+		&.slick-active button{
+			background-color: red;
+		}
+	}
+}
